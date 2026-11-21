@@ -1,0 +1,52 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 8,
+  "modules-left": ["custom/logo", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["custom/beti", "custom/zram", "cpu", "pulseaudio", "clock"],
+
+  "custom/logo": {
+    "format": "⚡ BIRUK-OS",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 50
+  },
+
+  "custom/beti": {
+    "format": "🤖 Beti AI: Active",
+    "tooltip": "Beti Native Autonomous Co-Pilot"
+  },
+
+  "custom/zram": {
+    "format": "⚡ RAM: <500MB (ZRAM zstd)",
+    "tooltip": "Ultra-Low Memory Footprint"
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+
+  "clock": {
+    "format": "{:%I:%M %p  |  %a, %b %d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  }
+}

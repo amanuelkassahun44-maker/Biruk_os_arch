@@ -1,0 +1,48 @@
+# Biruk-OS Arch Linux Package List
+# Base System & Kernel
+base
+base-devel
+linux
+linux-firmware
+mkinitcpio
+mkinitcpio-archiso
+archiso
+syslinux
+dosfstools
+e2fsprogs
+sudo
+
+# Core Tools & Installer
+archinstall
+git
+nano
+networkmanager
+
+# Python & AI Engine Dependencies
+python
+python-pip
+alsa-utils
+pipewire
+pipewire-pulse
+wireplumber
+
+# Desktop & Display Manager
+sddm
+qt5-wayland
+qt6-wayland
+hyprland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal
+xorg-xwayland
+mesa
+
+# Hacker UI & Audio Visualizer
+kitty
+waybar
+wofi
+fastfetch
+cava
+
+# Fonts
+ttf-fira-code
+ttf-font-awesome

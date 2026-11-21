@@ -1,0 +1,39 @@
+name: Build Biruk-OS Arch ISO
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Compile Biruk-OS Arch Linux ISO
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - name: Install build dependencies
+        run: |
+          pacman-key --init || true
+          pacman-key --populate archlinux || true
+          pacman -Sy --noconfirm archlinux-keyring || true
+          pacman -Syu --noconfirm git archiso mkinitcpio
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build ISO
+        run: |
+          cp -n -r /usr/share/archiso/configs/releng/* . 2>/dev/null || true
+          chmod +x profiledef.sh 2>/dev/null || true
+          find airootfs/ -type f -name "*.sh" -exec chmod +x {} + 2>/dev/null || true
+          mkarchiso -v -w /tmp/work -o /tmp/out .
+
+      - name: Upload ISO
+        uses: actions/upload-artifact@v4
+        with:
+          name: biruk-os-iso
+          path: /tmp/out/*.iso
+          if-no-files-found: error
+          retention-days: 14
