@@ -18,7 +18,7 @@ jobs:
           pacman-key --init || true
           pacman-key --populate archlinux || true
           pacman -Sy --noconfirm archlinux-keyring || true
-          pacman -Syu --noconfirm git archiso mkinitcpio
+          pacman -Syu --noconfirm git archiso mkinitcpio mtools dosfstools libisoburn erofs-utils
 
       - name: Checkout code
         uses: actions/checkout@v4
